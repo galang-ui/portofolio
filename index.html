@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- =====================================================================
+       EDIT: DATA UTAMA SEO & METADATA (Ganti dengan data asli Anda)
+       ===================================================================== -->
+  <title>Budi Santoso — Senior Front-End Developer &amp; UI Engineer</title>
+  <meta name="description" content="Portofolio resmi Budi Santoso, Senior Front-End Developer yang berfokus pada pengembangan antarmuka web cepat, aksesibel, dan skalabel.">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Budi Santoso — Senior Front-End Developer &amp; UI Engineer">
+  <meta property="og:description" content="Membangun antarmuka web modern dengan performa tinggi, aksesibilitas WCAG AA, dan arsitektur bersih.">
+  <meta property="og:url" content="https://budisantoso.vercel.app">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Budi Santoso — Senior Front-End Developer">
+  <meta name="twitter:description" content="Portofolio resmi Budi Santoso, Senior Front-End Developer &amp; UI Engineer.">
+
+  <!-- Favicon SVG Inline (Tanpa file eksternal) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, sans-serif' font-weight='800' font-size='30' fill='%23ffffff'%3EBS%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts (Satu-satunya sumber eksternal yang diizinkan) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Skrip Inisialisasi Tema Awal (Mencegah kilatan warna / FOUC) -->
+  <script>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('portfolio-theme');
+        if (savedTheme === 'dark' || savedTheme === 'light') {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+      } catch (e) {
+        // Abaikan jika localStorage diblokir
+      }
+    })();
+  </script>
+
+  <style>
+    /* =====================================================================
+       1. VARIABEL CSS & TEMA (Terang & Gelap Otomatis + Manual)
+       ===================================================================== */
+    :root {
+      /* Warna Utama: Biru Kobalt & Aksen Kuning Hangat */
+      --primary: #1d4ed8;
+      --primary-hover: #1e40af;
+      --primary-soft: #eff6ff;
+      --accent: #eab308;
+      --accent-text: #713f12;
+      --accent-soft: #fefce8;
+
+      /* Permukaan & Teks (Mode Terang - Kontras WCAG AA Terjaga) */
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-alt: #f1f5f9;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+      --nav-bg: rgba(255, 255, 255, 0.88);
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+      --focus-ring: #2563eb;
+
+      /* Tipografi & Tata Letak */
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --container-max: 960px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --transition: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Deteksi otomatis prefers-color-scheme: dark jika belum diatur manual */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --primary: #60a5fa;
+        --primary-hover: #93c5fd;
+        --primary-soft: rgba(59, 130, 246, 0.14);
+        --accent: #facc15;
+        --accent-text: #fef08a;
+        --accent-soft: rgba(250, 204, 21, 0.12);
+
+        --bg-body: #0b1120;
+        --bg-surface: #111827;
+        --bg-surface-alt: #1e293b;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --border-color: #1e293b;
+        --nav-bg: rgba(17, 24, 39, 0.88);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 10px 28px -4px rgba(0, 0, 0, 0.45);
+        --focus-ring: #60a5fa;
+      }
+    }
+
+    /* Override manual saat pengguna memilih mode gelap */
+    :root[data-theme="dark"] {
+      --primary: #60a5fa;
+      --primary-hover: #93c5fd;
+      --primary-soft: rgba(59, 130, 246, 0.14);
+      --accent: #facc15;
+      --accent-text: #fef08a;
+      --accent-soft: rgba(250, 204, 21, 0.12);
+
+      --bg-body: #0b1120;
+      --bg-surface: #111827;
+      --bg-surface-alt: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #1e293b;
+      --nav-bg: rgba(17, 24, 39, 0.88);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 28px -4px rgba(0, 0, 0, 0.45);
+      --focus-ring: #60a5fa;
+    }
+
+    /* =====================================================================
+       2. RESET & AKSESIBILITAS DASAR
+       ===================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px;
+      overflow-x: hidden;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Indikator Fokus Aksesibel */
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Tautan Lewati ke Konten Utama (Skip Link) */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 10px 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      z-index: 1000;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* =====================================================================
+       3. NAVIGASI ATAS MENEMPEL (STICKY HEADER)
+       ===================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1.125rem;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      display: inline-block;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.925rem;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Tombol Ganti Tema */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background-color: var(--bg-surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .theme-toggle svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* =====================================================================
+       4. BAGIAN HERO
+       ===================================================================== */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent-soft);
+      color: var(--accent-text);
+      border: 1px solid rgba(234, 179, 8, 0.35);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .hero-role {
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .hero-summary {
+      max-width: 65ch;
+      font-size: 1.075rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 10px;
+      transition: background-color var(--transition), transform var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Perbaikan kontras teks tombol di mode gelap agar memenuhi WCAG AA */
+    :root[data-theme="dark"] .btn-primary {
+      color: #0b1120;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .btn-primary {
+        color: #0b1120;
+      }
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-surface);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* =====================================================================
+       5. TATA LETAK SECTION UMUM
+       ===================================================================== */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-header h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.975rem;
+    }
+
+    /* Animasi Muncul Saat Scroll (Progressive Enhancement) */
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .js-enabled .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =====================================================================
+       6. FILTER KEAHLIAN & ACCORDION PENGALAMAN KERJA
+       ===================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .filter-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    .filter-btn {
+      background-color: var(--bg-surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    :root[data-theme="dark"] .filter-btn[aria-pressed="true"] {
+      color: #0b1120;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .filter-btn[aria-pressed="true"] {
+        color: #0b1120;
+      }
+    }
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .exp-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .exp-card:hover {
+      border-color: var(--primary);
+    }
+
+    .exp-card[hidden] {
+      display: none;
+    }
+
+    .exp-trigger {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      text-align: left;
+      font-family: inherit;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .exp-title {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .exp-meta {
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .exp-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: var(--bg-surface-alt);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, background-color var(--transition);
+      margin-top: 2px;
+    }
+
+    .exp-trigger[aria-expanded="true"] .exp-icon {
+      transform: rotate(180deg);
+      background-color: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .exp-panel {
+      padding: 0 24px 22px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Penting: Jika JS mati, panel tetap tampil! Panel hanya disembunyikan jika JS aktif dan aria-expanded="false" */
+    .js-enabled .exp-panel[hidden] {
+      display: none;
+    }
+
+    .exp-bullets {
+      margin-top: 16px;
+      padding-left: 20px;
+      color: var(--text-main);
+    }
+
+    .exp-bullets li {
+      margin-bottom: 8px;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .tag-pill {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* =====================================================================
+       7. PROYEK UNGGULAN
+       ===================================================================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), border-color var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .project-result {
+      background-color: var(--bg-surface-alt);
+      border-left: 3px solid var(--accent);
+      padding: 8px 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 18px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.925rem;
+      text-decoration: none;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* =====================================================================
+       8. KEAHLIAN & ALAT
+       ===================================================================== */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-badge {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 9px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.925rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =====================================================================
+       9. SERTIFIKASI & PENDIDIKAN
+       ===================================================================== */
+    .edu-cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 24px;
+    }
+
+    .info-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-item {
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .info-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .info-item-title {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .info-item-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================================
+       10. KONTAK & FOOTER
+       ===================================================================== */
+    .contact-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-surface-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 11px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+    }
+
+    .contact-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .site-footer {
+      padding: 32px 0 48px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================================
+       11. RESPONSIVITAS MOBILE
+       ===================================================================== */
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none; /* Ringkas di layar sangat sempit agar tidak meluber */
+      }
+      .hero {
+        padding: 48px 0 40px;
+      }
+      .exp-trigger {
+        padding: 16px 18px;
+      }
+      .exp-panel {
+        padding: 0 18px 18px;
+      }
+      .contact-card {
+        padding: 24px 20px;
+      }
+    }
+
+    /* =====================================================================
+       12. GAYA CETAK CV (PRINT STYLESHEET)
+       ===================================================================== */
+    @media print {
+      @page {
+        margin: 1.5cm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+        line-height: 1.45;
+      }
+      .site-header,
+      .filter-bar,
+      .btn-primary,
+      .btn-secondary,
+      .exp-icon,
+      .skip-link {
+        display: none !important;
+      }
+      .hero, section {
+        padding: 16px 0 !important;
+        border-bottom: 1px solid #cccccc !important;
+      }
+      .exp-card, .project-card, .info-box, .contact-card {
+        border: 1px solid #dddddd !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      /* Buka semua detail pengalaman secara otomatis saat dicetak menjadi CV */
+      .exp-panel,
+      .js-enabled .exp-panel[hidden] {
+        display: block !important;
+        border-top: none !important;
+        padding-top: 0 !important;
+      }
+      .exp-card[hidden] {
+        display: block !important;
+      }
+      a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tautan Aksesibilitas untuk Navigasi Keyboard -->
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <!-- =====================================================================
+       NAVIGASI ATAS (STICKY)
+       ===================================================================== -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <!-- EDIT: Nama atau Inisial Brand -->
+      <a href="#" class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>Budi Santoso</span>
+      </a>
+
+      <div class="nav-actions">
+        <nav aria-label="Navigasi Utama">
+          <ul class="nav-links">
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#proyek">Proyek</a></li>
+            <li><a href="#keahlian">Keahlian</a></li>
+            <li><a href="#pendidikan">Pendidikan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Ganti tema warna">
+          <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <span id="theme-label">Tema</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         1. HERO SECTION
+         EDIT: Ganti seluruh teks di bawah dengan profil asli Anda
+         ===================================================================== -->
+    <section class="hero">
+      <div class="container">
+        <!-- EDIT: Lokasi & Status Ketersediaan -->
+        <div class="hero-badge">
+          <span aria-hidden="true">📍</span>
+          <span>Jakarta, Indonesia • Terbuka untuk Peluang Baru</span>
+        </div>
+
+        <!-- EDIT: Nama Lengkap & Profesi -->
+        <h1>Budi Santoso</h1>
+        <p class="hero-role">Senior Front-End Developer &amp; UI Engineer</p>
+
+        <!-- EDIT: Ringkasan Diri (2-3 kalimat untuk recruiter & hiring manager) -->
+        <p class="hero-summary">
+          Membangun antarmuka web modern yang cepat, responsif, dan mematuhi standar aksesibilitas WCAG AA. Berpengalaman lebih dari 5 tahun merancang arsitektur front-end skalabel yang meningkatkan konversi pengguna dan efisiensi tim engineering.
+        </p>
+
+        <div class="hero-meta">
+          <a href="#kontak" class="btn-primary">
+            <span>Hubungi Saya</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <button type="button" onclick="window.print()" class="btn-secondary" title="Cetak halaman ini sebagai CV PDF">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Cetak CV</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         2. PENGALAMAN KERJA (DENGAN FILTER & ACCORDION)
+         EDIT: Ganti data pengalaman kerja di bawah (urutkan dari terbaru).
+         Pastikan atribut data-skills sesuai dengan tombol filter!
+         ===================================================================== -->
+    <section id="pengalaman" class="reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Pengalaman Kerja</h2>
+          <p>Klik pada tiap posisi untuk melihat detail pencapaian terukur, atau saring berdasarkan keahlian.</p>
+        </div>
+
+        <!-- Filter Keahlian (aria-pressed) -->
+        <div class="filter-bar" role="group" aria-label="Saring pengalaman berdasarkan keahlian">
+          <span class="filter-label">Filter:</span>
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Semua</button>
+          <button type="button" class="filter-btn" data-filter="JavaScript" aria-pressed="false">JavaScript</button>
+          <button type="button" class="filter-btn" data-filter="TypeScript" aria-pressed="false">TypeScript</button>
+          <button type="button" class="filter-btn" data-filter="Design System" aria-pressed="false">Design System</button>
+          <button type="button" class="filter-btn" data-filter="Web Performance" aria-pressed="false">Web Performance</button>
+        </div>
+
+        <div class="experience-list">
+          <!-- EDIT: Pengalaman 1 (Terbaru) -->
+          <article class="exp-card" data-skills="JavaScript,TypeScript,Design System,Web Performance">
+            <h3>
+              <button type="button" class="exp-trigger" aria-expanded="true" aria-controls="exp-panel-1" id="exp-btn-1">
+                <span>
+                  <span class="exp-title" style="display:block;">Senior Front-End Developer — PT Teknologi Nusantara</span>
+                  <span class="exp-meta">Jakarta, Indonesia • Jan 2023 – Sekarang</span>
+                </span>
+                <span class="exp-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div id="exp-panel-1" class="exp-panel" role="region" aria-labelledby="exp-btn-1">
+              <ul class="exp-bullets">
+                <li>Mempercepat waktu muat halaman utama (LCP) sebesar 42% melalui optimasi aset dan pemangkasan bundel JavaScript.</li>
+                <li>Merancang dan memelihara pustaka komponen UI (Design System) yang digunakan oleh 4 tim produk lintas divisi.</li>
+                <li>Meningkatkan skor aksesibilitas Lighthouse dari 74 menjadi 98 di seluruh alur transaksi utama.</li>
+              </ul>
+              <div class="exp-tags" aria-label="Keahlian terkait">
+                <span class="tag-pill">JavaScript</span>
+                <span class="tag-pill">TypeScript</span>
+                <span class="tag-pill">Design System</span>
+                <span class="tag-pill">Web Performance</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- EDIT: Pengalaman 2 -->
+          <article class="exp-card" data-skills="JavaScript,Web Performance">
+            <h3>
+              <button type="button" class="exp-trigger" aria-expanded="false" aria-controls="exp-panel-2" id="exp-btn-2">
+                <span>
+                  <span class="exp-title" style="display:block;">Front-End Web Developer — Studio Kreatif Digital</span>
+                  <span class="exp-meta">Bandung, Indonesia • Mar 2020 – Des 2022</span>
+                </span>
+                <span class="exp-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </span>
+              </button>
+            </h3>
+            <div id="exp-panel-2" class="exp-panel" role="region" aria-labelledby="exp-btn-2" hidden>
+              <ul class="exp-bullets">
+                <li>Mengembangkan lebih dari 18 situs web komersial responsif dengan tingkat retensi pengunjung meningkat rata-rata 27%.</li>
+                <li>Mengimplementasikan standar semantik HTML5 dan CSS Grid/Flexbox untuk mengurangi bug tampilan lintas peramban hingga 60%.</li>
+                <li>Berdampingan langsung dengan desainer UI/UX untuk menerjemahkan purwarupa Figma menjadi kode produksi presisi tinggi.</li>
+              </ul>
+              <div class="exp-tags" aria-label="Keahlian terkait">
+                <span class="tag-pill">JavaScript</span>
+                <span class="tag-pill">Web Performance</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         3. PROYEK UNGGULAN
+         EDIT: Ganti dengan proyek nyata Anda. (Hapus seluruh <section id="proyek">
+         ini jika Anda tidak ingin menampilkan bagian proyek).
+         ===================================================================== -->
+    <section id="proyek" class="reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Proyek Pilihan</h2>
+          <p>Studi kasus pengembangan antarmuka dan solusi teknis yang telah dirilis.</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- EDIT: Proyek 1 -->
+          <article class="project-card">
+            <div>
+              <h3>Nusantara UI Kit</h3>
+              <p class="project-desc">Pustaka komponen antarmuka ringan berbasis CSS variabel dan JavaScript murni tanpa ketergantungan eksternal.</p>
+              <div class="project-result">Hasil: Ukuran bundel hanya 6 KB (gzip) dengan dukungan penuh navigasi keyboard.</div>
+            </div>
+            <a href="https://github.com/username/nusantara-ui" class="project-link" target="_blank" rel="noopener noreferrer">
+              <span>Lihat Kode di GitHub</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <!-- EDIT: Proyek 2 -->
+          <article class="project-card">
+            <div>
+              <h3>Audit &amp; Optimasi Portal E-Commerce</h3>
+              <p class="project-desc">Perombakan arsitektur front-end katalog produk dan halaman pembayaran untuk perangkat seluler kelas menengah.</p>
+              <div class="project-result">Hasil: Penurunan tingkat pentalan (bounce rate) sebesar 19% dalam 60 hari pertama.</div>
+            </div>
+            <a href="https://github.com/username/ecommerce-perf-case" class="project-link" target="_blank" rel="noopener noreferrer">
+              <span>Pelajari Studi Kasus</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. KEAHLIAN DAN ALAT
+         EDIT: Ganti daftar keahlian sesuai kemampuan asli Anda
+         ===================================================================== -->
+    <section id="keahlian" class="reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Keahlian &amp; Alat</h2>
+          <p>Teknologi inti dan perangkat kerja yang digunakan sehari-hari.</p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- EDIT: Daftar Keahlian -->
+          <span class="skill-badge">HTML5 Semantik</span>
+          <span class="skill-badge">CSS3 Modern (Grid / Flexbox)</span>
+          <span class="skill-badge">JavaScript (ES6+)</span>
+          <span class="skill-badge">TypeScript</span>
+          <span class="skill-badge">Aksesibilitas Web (WCAG AA)</span>
+          <span class="skill-badge">Optimasi Core Web Vitals</span>
+          <span class="skill-badge">Design System</span>
+          <span class="skill-badge">Git &amp; GitHub</span>
+          <span class="skill-badge">Figma</span>
+          <span class="skill-badge">Vercel Deployment</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. SERTIFIKASI DAN PENDIDIKAN
+         EDIT: Ganti dengan riwayat pendidikan dan sertifikasi asli Anda
+         ===================================================================== -->
+    <section id="pendidikan" class="reveal">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sertifikasi &amp; Pendidikan</h2>
+          <p>Latar belakang akademis dan kredensial profesional.</p>
+        </div>
+
+        <div class="edu-cert-grid">
+          <!-- Kolom Sertifikasi -->
+          <div class="info-box">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+              <span>Sertifikasi</span>
+            </h3>
+            <!-- EDIT: Sertifikasi 1 -->
+            <div class="info-item">
+              <div class="info-item-title">Web Accessibility Specialist (WAS)</div>
+              <div class="info-item-sub">IAAP • 2024</div>
+            </div>
+            <!-- EDIT: Sertifikasi 2 -->
+            <div class="info-item">
+              <div class="info-item-title">Front-End Web Developer Expert</div>
+              <div class="info-item-sub">Dicoding Indonesia • 2022</div>
+            </div>
+          </div>
+
+          <!-- Kolom Pendidikan -->
+          <div class="info-box">
+            <h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Pendidikan</span>
+            </h3>
+            <!-- EDIT: Pendidikan 1 -->
+            <div class="info-item">
+              <div class="info-item-title">S1 Teknik Informatika</div>
+              <div class="info-item-sub">Universitas Indonesia • 2016 – 2020</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         6. KONTAK
+         EDIT: Ganti alamat email dan tautan profil sosial Anda
+         ===================================================================== -->
+    <section id="kontak" class="reveal">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <h2 style="font-size: 1.65rem; font-weight: 800; margin-bottom: 8px;">Mari Berdiskusi</h2>
+            <p style="color: var(--text-muted); max-width: 60ch;">
+              Tertarik mendiskusikan peran front-end, kolaborasi proyek, atau kebutuhan tim Anda? Silakan hubungi saya langsung melalui email atau tautan profesional di bawah ini.
+            </p>
+          </div>
+
+          <div class="contact-links">
+            <!-- EDIT: Email Asli -->
+            <a href="mailto:budi.santoso@example.com" class="contact-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>budi.santoso@example.com</span>
+            </a>
+
+            <!-- EDIT: Tautan LinkedIn -->
+            <a href="https://linkedin.com/in/budisantoso" class="contact-pill" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- EDIT: Tautan GitHub -->
+            <a href="https://github.com/budisantoso" class="contact-pill" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER SEDERHANA
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <!-- EDIT: Nama Pemilik Hak Cipta -->
+      <p>&copy; <span id="current-year">2026</span> Budi Santoso. Dibuat dengan HTML, CSS, dan JavaScript murni.</p>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       JAVASCRIPT INTERAKTIF (TANPA DEPENDENSI EKSTERNAL)
+       ===================================================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // Tandai bahwa JavaScript aktif untuk progressive enhancement
+      document.documentElement.classList.add('js-enabled');
+
+      // 1. Perbarui tahun footer secara otomatis
+      var yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+
+      // 2. Pengalih Tema Terang / Gelap Manual (disimpan di localStorage dengan try/catch)
+      var themeToggleBtn = document.getElementById('theme-toggle');
+      var themeLabel = document.getElementById('theme-label');
+
+      function getEffectiveTheme() {
+        var explicit = document.documentElement.getAttribute('data-theme');
+        if (explicit === 'dark' || explicit === 'light') {
+          return explicit;
+        }
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function updateThemeButtonUI() {
+        if (!themeToggleBtn || !themeLabel) return;
+        var current = getEffectiveTheme();
+        var nextLabel = current === 'dark' ? 'Terang' : 'Gelap';
+        themeLabel.textContent = nextLabel;
+        themeToggleBtn.setAttribute('aria-label', 'Ganti ke mode ' + nextLabel.toLowerCase());
+      }
+
+      updateThemeButtonUI();
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', function() {
+          var current = getEffectiveTheme();
+          var nextTheme = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', nextTheme);
+          try {
+            localStorage.setItem('portfolio-theme', nextTheme);
+          } catch (e) {
+            // Abaikan error penyimpanan jika mode privat memblokir storage
+          }
+          updateThemeButtonUI();
+        });
+      }
+
+      // 3. Accordion Pengalaman Kerja (aria-expanded & aria-controls)
+      var expTriggers = document.querySelectorAll('.exp-trigger');
+      expTriggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+          var isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          var panelId = trigger.getAttribute('aria-controls');
+          var panel = document.getElementById(panelId);
+
+          trigger.setAttribute('aria-expanded', String(!isExpanded));
+          if (panel) {
+            if (isExpanded) {
+              panel.setAttribute('hidden', '');
+            } else {
+              panel.removeAttribute('hidden');
+            }
+          }
+        });
+      });
+
+      // 4. Filter Pengalaman Berdasarkan Keahlian (aria-pressed)
+      var filterButtons = document.querySelectorAll('.filter-btn');
+      var expCards = document.querySelectorAll('.exp-card');
+
+      filterButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var selectedSkill = btn.getAttribute('data-filter');
+
+          // Perbarui status aria-pressed pada semua tombol filter
+          filterButtons.forEach(function(b) {
+            b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+          });
+
+          // Tampilkan atau sembunyikan kartu pengalaman yang relevan
+          expCards.forEach(function(card) {
+            if (selectedSkill === 'all') {
+              card.removeAttribute('hidden');
+              return;
+            }
+            var cardSkills = (card.getAttribute('data-skills') || '').split(',').map(function(s) {
+              return s.trim();
+            });
+            if (cardSkills.indexOf(selectedSkill) !== -1) {
+              card.removeAttribute('hidden');
+            } else {
+              card.setAttribute('hidden', '');
+            }
+          });
+        });
+      });
+
+      // 5. Animasi Muncul Saat Scroll (Menghormati prefers-reduced-motion)
+      var prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var revealElements = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealElements.forEach(function(el) {
+          el.classList.add('is-visible');
+        });
+      } else {
+        var observer = new IntersectionObserver(function(entries, obs) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
